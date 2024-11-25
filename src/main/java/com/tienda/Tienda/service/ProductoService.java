@@ -1,6 +1,8 @@
 package com.tienda.Tienda.service;
 
 import com.tienda.Tienda.domain.Producto;
+import org.springframework.data.repository.query.Param;
+
 import java.util.List;
 
 public interface ProductoService {
@@ -18,4 +20,11 @@ public interface ProductoService {
     // Se elimina el producto que tiene el id pasado por parámetro
     public void delete(Producto producto);
 
+    public List<Producto> findByPrecioBetweenOrderByDescripcion(double precioInf, double precioSup);
+
+    public List<Producto> metodoJPQL(double precioInf, double precioSup);
+
+    public List<Producto> metodoNativo(double precioInf, double precioSup);
+
+    public List<Producto> metodoTarea(int cantidad);
 }
