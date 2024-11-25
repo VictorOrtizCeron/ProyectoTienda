@@ -23,7 +23,10 @@ public class Producto implements Serializable {
     private String detalle;
     private double precio;
     private int existencias;
-    private Long idCategoria;
+    //private Long idCategoria; - >reemplazar
+    @ManyToOne
+    @JoinColumn(name = "id_categoria")
+    Categoria categoria;
 
     public Producto() {
     }
