@@ -17,8 +17,13 @@ public class Producto implements Serializable {
     @Column(name="id_producto")
     private Long idProducto;
     private String descripcion;
+
     private String rutaImagen;
     private boolean activo;
+    private String detalle;
+    private double precio;
+    private int existencias;
+    private Long idCategoria;
 
     public Producto() {
     }

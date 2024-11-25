@@ -100,14 +100,23 @@
                                     <thead class="table-dark">
                                         <tr><th>#</th>
                                             <th>[[#{producto.descripcion}]]</th>
+
+                                            <th>[[#{producto.precio}]]</th>
+                                            <th>[[#{producto.existencias}]]</th>
+                                            <th>[[#{producto.total}]]</th>
                                             <th>[[#{producto.activo}]]</th>
+
                                             <th></th></tr>
                                     </thead>
                                     <tbody>
                                         <tr th:each="producto, contador : ${productos}">
                                             <td>[[${contador.count}]]</td>
                                             <td>[[${producto.descripcion}]]</td>
-                                            <td th:text="${producto.activo} ? 'Activa' : 'Inactiva'" />
+
+                                            <td>[[${producto.precio}]]</td>
+                                            <td>[[${producto.existencias}]]</td>
+                                            <td>[[${producto.precio*producto.existencias}]]</td>
+                                            <td th:text="${producto.activo} ? 'Activa' : 'Inactiva'" ></td>
                                             <td><a th:href="@{/producto/eliminar/}+${producto.idProducto}"
                                                    class="btn btn-danger">
                                                     <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
@@ -162,6 +171,30 @@
                                                            name="descripcion" th:field="*{descripcion}"
                                                            required="true">
                                                 </div>
+
+                                                <div class="mb-3">
+                                                    <label for="detalle">[[#{producto.detalle}]]</label>
+                                                    <textarea class="form-control"
+                                                           name="detalle" th:field="*{detalle}"
+                                                              required="true"></textarea>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="precio">[[#{producto.precio}]]</label>
+                                                    <input type="number" class="form-control"
+                                                           name="precio" th:field="*{precio}"
+                                                           required="true">
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="existencias">[[#{producto.existencias}]]</label>
+                                                    <input type="number" class="form-control"
+                                                           name="existencias" th:field="*{existencias}"
+                                                           required="true">
+                                                </div>
+
+
+
+
                                                 <div class="mb-3">
                                                     <label for="activo">[[#{producto.activo}]]</label>
                                                     <input class="form-check-input" 
