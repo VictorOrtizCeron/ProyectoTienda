@@ -133,6 +133,4 @@ public class ProjectConfig implements WebMvcConfigurer {
         build.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
 
-
-
 }

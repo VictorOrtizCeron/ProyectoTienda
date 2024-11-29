@@ -20,7 +20,7 @@ public class Usuario implements Serializable {
     private String username;
     private String password;
     private String nombre;
-    private String apellido;
+    private String apellidos;
     private String correo;
     private String telefono;
     private String rutaImagen;
