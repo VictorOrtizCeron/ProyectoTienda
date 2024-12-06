@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Locale;
 
+
 @Service
 public class RegistroServiceImpl implements RegistroService {
     @Autowired

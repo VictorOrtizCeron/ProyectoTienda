@@ -6,8 +6,9 @@ package com.tienda.Tienda;
 
 
 
-import java.util.Locale;
 
+
+import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -63,6 +64,7 @@ public class ProjectConfig implements WebMvcConfigurer {
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
     }
+
     /* Los siguiente métodos son para implementar el tema de seguridad dentro del proyecto */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -102,35 +104,34 @@ public class ProjectConfig implements WebMvcConfigurer {
                 .logout((logout) -> logout.permitAll());
         return http.build();
     }
-    /* El siguiente método se utiliza para completar la clase no es
-        realmente funcional, la próxima semana se reemplaza con usuarios de BD */
-//    @Bean
-//    public UserDetailsService users() {
-//        //hardcoding
-//        UserDetails admin = User.builder()
-//                .username("juan")
-//                .password("{noop}123")
-//                .roles("USER", "VENDEDOR", "ADMIN")
-//                .build();
-//        UserDetails sales = User.builder()
-//                .username("rebeca")
-//                .password("{noop}456")
-//                .roles("USER", "VENDEDOR")
-//                .build();
-//        UserDetails user = User.builder()
-//                .username("pedro")
-//                .password("{noop}789")
-//                .roles("USER")
-//                .build();
-//        return new InMemoryUserDetailsManager(user, sales, admin);
-//    }
-    @Autowired
-    private UserDetailsService userDetailsService;//aqui se obtiene la info del usuario (toda)
 
+/* El siguiente método se utiliza para completar la clase no es
+    realmente funcional, la próxima semana se reemplaza con usuarios de BD
+    @Bean
+    public UserDetailsService users() {
+        UserDetails admin = User.builder()
+                .username("juan")
+                .password("{noop}123")
+                .roles("USER", "VENDEDOR", "ADMIN")
+                .build();
+        UserDetails sales = User.builder()
+                .username("rebeca")
+                .password("{noop}456")
+                .roles("USER", "VENDEDOR")
+                .build();
+        UserDetails user = User.builder()
+                .username("pedro")
+                .password("{noop}789")
+                .roles("USER")
+                .build();
+        return new InMemoryUserDetailsManager(user, sales, admin);
+    }  */
+
+    @Autowired
+    private UserDetailsService userDetailsService; //aqui se obtiene la info del usuario como por ejemplo el nombre, la contraseña y los roles
 
     @Autowired
     public void configurerGlobal(AuthenticationManagerBuilder build) throws Exception {
         build.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
-
 }

@@ -29,6 +29,8 @@ public class ProductoController {
     public String inicio(Model model) {
         var productos = productoService.getProductos(false);
         var categorias = categoriaService.getCategorias(false);
+
+        //json
         model.addAttribute("productos", productos);
         model.addAttribute("categorias", categorias);
         model.addAttribute("totalProductos", productos.size());
