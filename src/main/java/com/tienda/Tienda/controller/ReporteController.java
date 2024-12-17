@@ -33,4 +33,15 @@ public class ReporteController {
 
         return reporteService.generaReporte("ventas", null, tipo);
     }
+
+    @GetMapping("/CategoriasProductos")
+    public ResponseEntity<Resource> CateogriasProductos(@RequestParam String tipo) throws IOException {
+
+        return reporteService.generaReporte("CategoriasProductos", null, tipo);
+    }
+    @GetMapping("/VentaProducto")
+    public ResponseEntity<Resource> VentaProdcto(@RequestParam String tipo) throws IOException {
+
+        return reporteService.generaReporte("VentaProducto", null, tipo);
+    }
 }

@@ -102,10 +102,58 @@
                                 </button>
                             </div>
                         </div>
+
+
+
+
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
+
+    <!-- Reportes de la tarea # 5 -->
+    <div class="card">
+        <div class="card-header text-center">
+            Reporte de Productos con descripción de Categoría
+        </div>
+        <div class="card-body">
+            <a th:href="@{/reportes/CategoriasProductos?tipo=vPdf}" class="btn btn-primary">
+                <i class='fas fa-eye'></i><i class='fas fa-file-pdf'></i>
+            </a>
+            <a th:href="@{/reportes/CategoriasProductos?tipo=Pdf}" class="btn btn-success">
+                <i class='fas fa-download'></i><i class='fas fa-file-pdf'></i>
+            </a>
+            <a th:href="@{/reportes/CategoriasProductos?tipo=Xls}" class="btn btn-warning">
+                <i class='fas fa-download'></i><i class='fas fa-file-excel'></i>
+            </a>
+            <a th:href="@{/reportes/CategoriasProductos?tipo=Csv}" class="btn btn-danger">
+                <i class='fas fa-download'></i><i class='fas fa-file-csv'></i>
+            </a>
+        </div>
+
+
+    </div>
+    <div class="card">
+        <div class="card-header text-center">
+            Reporte de ventas con detalle de productos y factura
+        </div>
+        <div class="card-body">
+            <a th:href="@{/reportes/VentaProducto?tipo=vPdf}" class="btn btn-primary">
+                <i class='fas fa-eye'></i><i class='fas fa-file-pdf'></i>
+            </a>
+            <a th:href="@{/reportes/VentaProducto?tipo=Pdf}" class="btn btn-success">
+                <i class='fas fa-download'></i><i class='fas fa-file-pdf'></i>
+            </a>
+            <a th:href="@{/reportes/VentaProducto?tipo=Xls}" class="btn btn-warning">
+                <i class='fas fa-download'></i><i class='fas fa-file-excel'></i>
+            </a>
+            <a th:href="@{/reportes/VentaProducto?tipo=Csv}" class="btn btn-danger">
+                <i class='fas fa-download'></i><i class='fas fa-file-csv'></i>
+            </a>
+        </div>
+
+
     </div>
 </div>
 
